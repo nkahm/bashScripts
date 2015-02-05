@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -N flower
+#PBS -l nodes=1:noib,walltime=130:00:00
+#PBS -A glotzer
+#PBS -l qos=cac
+#PBS -q route
+#PBS -j oe
+#PBS -t 40-60
+#PBS -mn
+#PBS -V
+
+cd "/nobackup/damascus/1_MC/1_shapes/14_flower/"
+
+echo "load flower.pos setpf 0.$PBS_ARRAYID NVT steps 1000 skip 1000 next" | ./MCpoly > flower.pf.$PBS_ARRAYID.pos
